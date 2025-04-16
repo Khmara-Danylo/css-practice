@@ -1,7 +1,3 @@
-$rate-block-size: 32px;
-$font-primary: Arial, sans-serif;
-$person-width: 220px;
-
 * {
   margin: 0;
   padding: 0;
@@ -17,48 +13,43 @@ img {
 }
 
 html {
-  font-family: $font-primary;
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
 .athletes {
   --column-count: 2;
-
   padding: 30px 55px;
-
   display: grid;
-  grid-template-columns: repeat(var(--column-count), $person-width);
+  grid-template-columns: repeat(var(--column-count), 220px);
   grid-auto-rows: 250px;
   place-content: center center;
   justify-items: center;
   gap: 20px 10px;
-
-  @media (min-width: 1000px) {
+}
+@media (min-width: 1000px) {
+  .athletes {
     --column-count: 4;
   }
 }
 
 .athletes__person {
-  width: $person-width;
+  width: 220px;
   height: 287px;
   padding: 10px 10px 16px;
   border-radius: 10px;
-
   transition: transform 1s;
-
-  &:hover {
-    background-color: #eeeeee;
-    z-index: 1;
-    transform: scale(1.2);
-
-    .athletes__details .athletes__extra {
-      display: block;
-    }
-
-    .athletes__photo .athletes__img {
-      border-radius: 60px;
-    }
-  }
+}
+.athletes__person:hover {
+  background-color: #eeeeee;
+  z-index: 1;
+  transform: scale(1.2);
+}
+.athletes__person:hover .athletes__details .athletes__extra {
+  display: block;
+}
+.athletes__person:hover .athletes__photo .athletes__img {
+  border-radius: 60px;
 }
 
 .athletes__photo {
@@ -79,15 +70,13 @@ html {
   font-weight: 700;
   letter-spacing: 0;
   color: #8b0000;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $rate-block-size;
-  height: $rate-block-size;
+  width: 32px;
+  height: 32px;
   background-color: #fff;
   border-radius: 50px;
-
   position: absolute;
   right: 10px;
   top: 50%;
@@ -116,20 +105,17 @@ html {
 
 .athletes__sport {
   display: inline-block;
-
-  &::after {
-    content: ',';
-  }
+}
+.athletes__sport::after {
+  content: ",";
 }
 
 .athletes__pay {
   display: inline-block;
-
-  &::before {
-    content: '$';
-  }
-
-  &::after {
-    content: 'M';
-  }
 }
+.athletes__pay::before {
+  content: "$";
+}
+.athletes__pay::after {
+  content: "M";
+}/*# sourceMappingURL=main.css.map */
